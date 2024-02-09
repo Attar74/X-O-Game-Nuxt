@@ -1,5 +1,5 @@
 <template>
-  <div class="flex my-auto h-[90vh] p-[2rem] lg:py-[0rem]">
+  <div class="flex my-auto h-[90vh] p-[2rem] lg:py-[2rem]">
 		<div class="mx-auto my-auto">
 			<div class="text-7xl mb-[2rem] text-center"> 
 				<span class="border-2 px-2">X</span>
@@ -25,7 +25,7 @@
 			<div class="flex justify-center" v-for="j in 3" :key="j">
 				<button 
 					:disabled="GameDone" 
-					class="flex border-4 m-[0.1rem] border-[#000] text-[#000] w-[5.375rem] h-[5.375rem] md:w-[10.375rem] md:h-[10.375rem] rounded-md"
+					class="flex border-4 m-[0.1rem] border-[#000] text-[#000] w-[5.375rem] h-[5.375rem] md:w-[8.375rem] md:h-[8.375rem] rounded-md"
 					:class="{'hover:bg-[#00000033] cursor-pointer': !GameDone}"
 					v-for="i in 3" @click="doIt(j, i)" :key="i">
 					<p class="text-[3rem] md:text-[5rem] mx-auto my-auto" :class="[game[j-1][i-1] == 'x' ? 'text-[#09C372]' : 'text-[#498AFB]']">
