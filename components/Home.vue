@@ -39,8 +39,6 @@
 	</div>
 </template>
 <script lang="ts" setup>
-import { jsx } from 'vue/jsx-runtime';
-
 
 let isX = ref(true)
 let GameDone = ref(false)
