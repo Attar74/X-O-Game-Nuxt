@@ -5,10 +5,10 @@
 			<span class="border-2 px-2">O</span>
 			<span class="tracking-widest"> Game </span>
 		</div>
-		<p class="text-4xl md:text-5xl mb-[2rem] text-center text-red-500" v-if="isEqual">
+		<p class="text-3xl md:text-5xl mb-[2rem] text-center text-red-500" v-if="isEqual">
 			No Winner, Hit Reset Button
 		</p>
-		<p class="text-4xl md:text-5xl mb-[2rem] text-center" v-else-if="!GameDone">
+		<p class="text-3xl md:text-5xl mb-[2rem] text-center" v-else-if="!GameDone">
 			Player
 			<span
 				class="text-6xl"
@@ -18,7 +18,7 @@
 			</span>
 			's turn
 		</p>
-		<p class="text-4xl md:text-5xl mb-[2rem] text-center" v-else>
+		<p class="text-3xl md:text-5xl mb-[2rem] text-center" v-else>
 			Whoaaaaa!! Player
 			<span
 				class="text-6xl"
@@ -26,7 +26,7 @@
 			>
 				{{ !isX ? 'X' : 'O' }}
 			</span>
-			Won
+			Wons
 		</p>
 		<div class="flex justify-center" v-for="j in 3" :key="j">
 			<button
@@ -116,7 +116,7 @@ const checkArr = (arr: string[]) => {
     return true;
   }
   const XOrO = !isX.value ? 'x' : 'o';
-  return arr.every((val) => val === XOrO);
+  return arr.length === 3 && arr.every((val) => val === XOrO);
 };
 
 const checkAnalog = () => {
@@ -128,7 +128,8 @@ const checkAnalog = () => {
     row.map((item, j) => {
       if (i === j) {
         arrLeftAnalog.push(game[i][j]);
-      } else if (i + j === 2) {
+      } 
+			if (i + j === 2) {
         arrRightAnalog.push(game[i][j]);
       }
     });
