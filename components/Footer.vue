@@ -1,6 +1,6 @@
 <template>
-	<div class="bg-[#000] text-[#fff] absolute w-[100%] bottom-0 h-[3rem] flex">
-		<div class="flex my-auto justify-between w-[50rem] mx-auto">
+	<div class="bg-[#000] text-[#fff] bottom-0 h-[3rem] flex px-[1rem] relative">
+		<div class="flex my-auto justify-between mx-auto absolute w-[100%]">
 			<div class="my-auto">
 				<p class="text-xl">
 					Powerd By Mahmod Attar
