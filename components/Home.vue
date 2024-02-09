@@ -6,7 +6,10 @@
 				<span class="border-2 px-2">O</span> 
 				<span class="tracking-widest"> Game </span>
 			</div>
-			<p class="text-5xl mb-[2rem] text-center" v-if="!GameDone"> Player 
+			<p class="text-5xl mb-[2rem] text-center text-red-500" v-if="isEqual">
+				No Winner, Hit Reset Button
+			</p>
+			<p class="text-5xl mb-[2rem] text-center" v-else-if="!GameDone"> Player 
 				<span class="text-7xl" :class="[isX ? 'text-[#09C372]' : 'text-[#498AFB]']">
 					{{ isX ? 'X' : 'O' }}
 				</span>
@@ -41,6 +44,8 @@
 <script lang="ts" setup>
 
 let isX = ref(true)
+let numberOfClicks = ref(0)
+let isEqual = ref(false)
 let GameDone = ref(false)
 const game: string[][] = reactive([
 	['', '', ''],
@@ -48,11 +53,18 @@ const game: string[][] = reactive([
 	['', '', ''],
 ])
 
+watch(numberOfClicks, (val) => {
+  if(val >= 9 && !GameDone.value) {
+	isEqual.value = true
+  }
+})
+
 
 const doIt = (j: number, i: number) => {
 	if(game[j-1][i-1].length) {
 		return
 	}
+	numberOfClicks.value++;
 	game[j-1][i-1] = game[j-1][i-1].length ? game[j-1][i-1] : isX.value ? 'x' : 'o'
 	isX.value = !isX.value
 	whoWin(j, i)
@@ -119,7 +131,7 @@ const reset = () => {
 		})
 	})
 	GameDone.value = false
-	isX.value = true
+	isX.value = isEqual.value = true
 }
 </script>
 <style>
