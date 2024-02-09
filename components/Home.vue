@@ -1,14 +1,14 @@
 <template>
-  <div class="p-[2rem] lg:py-[2rem]">
-		<div class="text-7xl mb-[2rem] text-center">
+  <div class="p-[2rem] lg:py-[1rem]">
+		<div class="text-4xl md:text-7xl mb-[2rem] text-center">
 			<span class="border-2 px-2">X</span>
 			<span class="border-2 px-2">O</span>
 			<span class="tracking-widest"> Game </span>
 		</div>
-		<p class="text-5xl mb-[2rem] text-center text-red-500" v-if="isEqual">
+		<p class="text-4xl md:text-5xl mb-[2rem] text-center text-red-500" v-if="isEqual">
 			No Winner, Hit Reset Button
 		</p>
-		<p class="text-5xl mb-[2rem] text-center" v-else-if="!GameDone">
+		<p class="text-4xl md:text-5xl mb-[2rem] text-center" v-else-if="!GameDone">
 			Player
 			<span
 				class="text-6xl"
@@ -18,7 +18,7 @@
 			</span>
 			's turn
 		</p>
-		<p class="text-5xl mb-[2rem] text-center" v-else>
+		<p class="text-4xl md:text-5xl mb-[2rem] text-center" v-else>
 			Whoaaaaa!! Player
 			<span
 				class="text-6xl"
@@ -144,7 +144,9 @@ const reset = () => {
     });
   });
   GameDone.value = false;
-  isX.value = isEqual.value = true;
+  isX.value = true;
+	isEqual.value = false
+	numberOfClicks.value = 0
 };
 </script>
 <style>
